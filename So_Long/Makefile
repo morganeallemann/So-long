@@ -6,7 +6,7 @@
 #    By: malleman <malleman@42lausanne.ch>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/02/07 13:39:48 by malleman          #+#    #+#              #
-#    Updated: 2023/02/15 15:48:17 by malleman         ###   ########.fr        #
+#    Updated: 2023/02/15 17:05:37 by malleman         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 #-------------------------- SOURCES -------------------------------------------#
@@ -15,12 +15,6 @@ SRCS =	main.c
 
 #--------------------------	VARIABLES -----------------------------------------#
 NAME		= so_long
-
-LIBFT		= libft.a
-LIBFTPATH	= ./libft/
-
-MLX			= libmlx.dylib
-MLXPATH		= ./mlx/
 
 OBJS		= ${SRCS:.c=.o}
 
@@ -34,30 +28,24 @@ CFLAGS		= -Wall -Wextra -Werror -I. -Iincludes
 
 ${NAME}: ${OBJS}
 	ar rcs ${NAME} ${OBJS} 
-	make -C ${LIBFTPATH}
-	make -C ${MLXPATH}
-	mv ${LIBFTPATH}${LIBFT} ${LIBFT}
-	mv ${MLXPATH}${MLX} ${MLX}
-	${CC} ${CLFAGS} ${INCLUDE} ${SRCS} ${LIBFT} ${MLX} -o ${NAME}
+	make -C ./libft
+	make -C ./mlx
+	${CC} ${CLFAGS} ${SRCS} ${LIBFT} ${MLX} -o ${NAME} -Llibft -lft -Lmlx -lmlx -framework OpenGL -framework AppKit
 
 all: 	${NAME}
 
 clean :
 		
 		rm -f ${OBJS}
-		make clean -C ${LIBFTPATH}
-		make clean -C ${MLXPATH}
+		make clean -C ./libft
+		make clean -C ./mlx
 
 fclean : clean
 		rm -f ${NAME}
-		rm -f ${LIBFT}
-		rm -f ${MLX}
-		make fclean -C ${LIBFTPATH}
-		make fclean -C ${MLXPATH}
+		make fclean -C ./libft
+		make clean -C ./mlx
 
 re: 	fclean all
-		make re -C ${LIBFTPATH}
-		make re -C ${MLXPATH}
 
 .PHONY: all clean fclean re
 
