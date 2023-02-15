@@ -6,7 +6,7 @@
 #    By: malleman <malleman@42lausanne.ch>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/02/07 13:39:48 by malleman          #+#    #+#              #
-#    Updated: 2023/02/08 12:14:03 by malleman         ###   ########.fr        #
+#    Updated: 2023/02/15 15:48:17 by malleman         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 #-------------------------- SOURCES -------------------------------------------#
@@ -38,7 +38,7 @@ ${NAME}: ${OBJS}
 	make -C ${MLXPATH}
 	mv ${LIBFTPATH}${LIBFT} ${LIBFT}
 	mv ${MLXPATH}${MLX} ${MLX}
-	${CC} ${CLFAGS} ${SRCS} ${LIBFT} ${MLX} -o ${NAME}
+	${CC} ${CLFAGS} ${INCLUDE} ${SRCS} ${LIBFT} ${MLX} -o ${NAME}
 
 all: 	${NAME}
 
