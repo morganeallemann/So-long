@@ -37,6 +37,7 @@ typedef struct  s_map_params
     int     lignes;
     int     player;
     int     items;
+    int     ennemies;
     int     exit;
     int     axe_y;
     int     axe_x;
@@ -81,5 +82,21 @@ typedef struct s_game_params
     int     moves;
 
 }               t_game_params;
+
+/*  Fonctions qui gerent les parametres de la map. */
+int    get_nbr_lines(char *map_fd);
+void    memset_range_line(int range, int col, int i, t_game_params *game);
+void    stock_map(char *map_fd, t_game_params *game);
+void    map_init(t_game_params *game);
+
+/* Fonctions qui gerent les parametres de la fenetre. */
+int window_init(t_game_params *game);
+int put_map_on_windows(t_game_params *game);
+
+/* Fonctions qui gerent les parametre des images. */
+void    images_init(t_game_params *game);
+void    define_sprite(t_game_params *game, int width, int y, int x);
+
+void    ft_free(char **tab);
 
 #endif

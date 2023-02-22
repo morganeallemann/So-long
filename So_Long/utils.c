@@ -1,7 +1,7 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   map_setup.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: malleman <malleman@42lausanne.ch>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
@@ -12,20 +12,17 @@
 
 #include "so_long.h"
 
-int	main(int ac, char **av)
+void    ft_free(char **tab)
 {
-	t_game_params	game;
+    size_t  i;
 
-	if (ac == 2)
-	{
-		stock_map(av[1], &game);
-		map_init(&game);
-		window_init(&game);
-		images_init(&game);
-		put_map_on_windows(&game);
-		mlx_loop(game.mlx_ptr);
-		free(game.mlx_ptr);
-		if(game.map.map)
-			ft_free(game.map.map);
-	}
+    i = 0;
+    while(tab[i])
+    {
+        free(tab[i]);
+        i++;
+    }
+    free(tab);
+    tab = NULL;
+    return;
 }

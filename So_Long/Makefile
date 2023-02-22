@@ -10,8 +10,7 @@
 #                                                                              #
 # **************************************************************************** #
 #-------------------------- SOURCES -------------------------------------------#
-SRCS =	main.c
-
+SRCS =	main.c images_setup.c map_setup.c window_setup.c utils.c
 
 #--------------------------	VARIABLES -----------------------------------------#
 NAME		= so_long
@@ -30,7 +29,7 @@ ${NAME}: ${OBJS}
 	ar rcs ${NAME} ${OBJS} 
 	make -C ./libft
 	make -C ./mlx
-	${CC} ${CLFAGS} ${SRCS} ${LIBFT} ${MLX} -o ${NAME} -Llibft -lft -Lmlx -lmlx -framework OpenGL -framework AppKit
+	${CC} ${CLFAGS} ${SRCS} ${LIBFT} ${MLX} -o ${NAME} -Llibft -lft -Lmlx -lmlx -framework OpenGL -framework AppKit -g -fsanitize=address
 
 all: 	${NAME}
 
