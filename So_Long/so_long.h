@@ -20,6 +20,13 @@
 # define CAT_RIGHT "images/Cat_right.xpm"
 # define EXIT "images/exit.xpm"
 
+/* Definition des touches de mouvement */
+# define KEY_ESC 53
+# define KEY_W 13
+# define KEY_A 0
+# define KEY_S 1
+# define KEY_D 2
+
 /* Struct qui défini les valeurs relative a la map
     - La hauteur et la largeur de ma map
     - L'axe y est l'index des colonnes
@@ -84,18 +91,22 @@ typedef struct s_game_params
 }               t_game_params;
 
 /*  Fonctions qui gerent les parametres de la map. */
-int    get_nbr_lines(char *map_fd);
+int     get_nbr_lines(char *map_fd);
 void    memset_range_line(int range, int col, int i, t_game_params *game);
 void    stock_map(char *map_fd, t_game_params *game);
 void    map_init(t_game_params *game);
 
 /* Fonctions qui gerent les parametres de la fenetre. */
-int window_init(t_game_params *game);
-int put_map_on_windows(t_game_params *game);
+int     window_init(t_game_params *game);
+int     put_map_on_windows(t_game_params *game);
 
 /* Fonctions qui gerent les parametre des images. */
 void    images_init(t_game_params *game);
 void    define_sprite(t_game_params *game, int width, int y, int x);
+
+void    player_init(t_game_params *game);
+
+int     event_key(int keycode, t_game_params *game);
 
 void    ft_free(char **tab);
 

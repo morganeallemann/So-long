@@ -10,7 +10,8 @@
 #                                                                              #
 # **************************************************************************** #
 #-------------------------- SOURCES -------------------------------------------#
-SRCS =	main.c images_setup.c map_setup.c window_setup.c utils.c
+SRCS =	main.c images_setup.c map_setup.c window_setup.c utils.c \
+		player_setup.c events_setup.c
 
 #--------------------------	VARIABLES -----------------------------------------#
 NAME		= so_long
@@ -26,7 +27,6 @@ CFLAGS		= -Wall -Wextra -Werror -I. -Iincludes
 	${CC} ${CFLAGS} -c $< -o ${<:.c=.o}
 
 ${NAME}: ${OBJS}
-	ar rcs ${NAME} ${OBJS} 
 	make -C ./libft
 	make -C ./mlx
 	${CC} ${CLFAGS} ${SRCS} ${LIBFT} ${MLX} -o ${NAME} -Llibft -lft -Lmlx -lmlx -framework OpenGL -framework AppKit -g -fsanitize=address
