@@ -29,7 +29,7 @@ void    images_init(t_game_params *game)
     game->img.cat_right = mlx_xpm_file_to_image(game->mlx_ptr, CAT_RIGHT, &game->img.img_l, &game->img.img_h);
     game->img.exit = mlx_xpm_file_to_image(game->mlx_ptr, EXIT, &game->img.img_l, &game->img.img_h);
     game->img.game_over = mlx_xpm_file_to_image(game->mlx_ptr, GAMEOVER, &game->img.img_l, &game->img.img_h);
-    game->img.winner = mlx_xpm_file_to_image(game->mlx_ptr, WINNER, &game->img.img_l, &game->img.img_h);
+    game->img.winner = mlx_xpm_file_to_image(game->mlx_ptr, WINNER, &game->win_l, &game->win_h);
 }
 
 /*

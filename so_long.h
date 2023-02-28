@@ -20,7 +20,7 @@
 # define CAT_RIGHT "images/Cat_right.xpm"
 # define EXIT "images/exit.xpm"
 # define GAMEOVER "images/game_over.xpm"
-# define WINNER "images/Winner.xpm"
+# define WINNER "images/winner.xpm"
 
 /* Definition des touches de mouvement */
 # define KEY_ESC 53
@@ -100,6 +100,7 @@ int     get_nbr_lines(char *map_fd);
 void    memset_range_line(int range, int col, int i, t_game_params *game);
 void    stock_map(char *map_fd, t_game_params *game);
 void    map_init(t_game_params *game);
+int    close_game(void *game);
 
 /* Fonctions qui gerent les parametres de la fenetre. */
 int     window_init(t_game_params *game);
@@ -111,7 +112,7 @@ void    define_sprite(t_game_params *game, int width, int y, int x);
 
 /* Fonction qui gerent les paramètres du joueur. */
 void    player_init(t_game_params *game);
-void    player_move(t_game_params *game);
+void    player_move(int keycode, t_game_params *game);
 void    player_move_down(t_game_params *game);
 void    player_move_left(t_game_params *game);
 void    player_move_right(t_game_params *game);
