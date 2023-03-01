@@ -11,7 +11,7 @@
 # **************************************************************************** #
 #-------------------------- SOURCES -------------------------------------------#
 SRCS =	main.c images_setup.c map_setup.c window_setup.c utils.c \
-		player_setup.c events_setup.c
+		player_setup.c events_setup.c checker.c
 
 #--------------------------	VARIABLES -----------------------------------------#
 NAME		= so_long

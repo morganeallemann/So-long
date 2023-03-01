@@ -92,6 +92,7 @@ typedef struct s_game_params
     int     pos_x;
     int     moves;
     int     items;
+    int     process;
 
 }               t_game_params;
 
@@ -100,7 +101,7 @@ int     get_nbr_lines(char *map_fd);
 void    memset_range_line(int range, int col, int i, t_game_params *game);
 void    stock_map(char *map_fd, t_game_params *game);
 void    map_init(t_game_params *game);
-int    close_game(void *game);
+int     close_game(void *game);
 
 /* Fonctions qui gerent les parametres de la fenetre. */
 int     window_init(t_game_params *game);
@@ -122,6 +123,13 @@ void    ennemies_animations(t_game_params *game, int width, int y);
 
 /* Fonctions qui gèrent les paramètres des événements clavier. */
 int     event_key(int keycode, t_game_params *game);
+void    put_move_on_screen(t_game_params *game);
+
+/* Fonctions qui gerent les erreurs de map. */
+int     map_valid_items_and_player_exit(t_game_params *game);
+int     map_valid_wall(t_game_params *game);
+int     map_valid_format(t_game_params *game);
+int     map_valid_extension(char *map);
 
 /* Autres fonctions utiles. */
 void    ft_free(char **tab);

@@ -125,6 +125,7 @@ void    map_init(t_game_params *game)
     game->map.exit = 0;
     game->moves = 0;
     game->items = 0;
+    game->process = 0;
 }
 
 int    close_game(void *game)
