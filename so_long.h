@@ -130,7 +130,8 @@ int     map_valid_items_and_player_exit(t_game_params *game);
 int     map_valid_wall(t_game_params *game);
 int     map_valid_format(t_game_params *game);
 int     map_valid_extension(char *map);
-
+int     map_all_check(char *map, t_game_params *game);
+void    copy_map(t_game_params *game);
 /* Autres fonctions utiles. */
 void    ft_free(char **tab);
 

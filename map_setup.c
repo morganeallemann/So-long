@@ -119,7 +119,7 @@ void    map_init(t_game_params *game)
     game->y = 0;
     game->win_h = game->map.lignes * IMG_SIZE;
     game->win_l = (ft_strlen(game->map.map[0]) - 1) * IMG_SIZE;
-    game->map.columns = ft_strlen(game->map.map[0] - 1);
+    game->map.columns = ft_strlen(game->map.map[0]);
     game->map.player = 0;
     game->map.items = 0;
     game->map.exit = 0;
@@ -133,9 +133,10 @@ int    close_game(void *game)
     t_game_params *data;
 
     data = (t_game_params *)game;
-    ft_free(data->map.map);
+    
     ft_printf("Nombre d'objects collectés: %d\n", data->items);
     ft_printf("Nombre de pas total: %d\n", data->moves);
+    ft_free(data->map.map);
     mlx_clear_window(data->mlx_ptr, data->win_ptr);
     mlx_destroy_window(data->mlx_ptr, data->win_ptr);
     ft_printf("See you soon ! :)\n");

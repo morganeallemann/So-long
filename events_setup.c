@@ -118,4 +118,5 @@ void    put_move_on_screen(t_game_params *game)
             x++;
     }
     mlx_string_put(game->mlx_ptr, game->win_ptr, 0, 10, 0xFFFFFF, nb_moves);
+    free(nb_moves);
 }

@@ -11,7 +11,7 @@
 # **************************************************************************** #
 #-------------------------- SOURCES -------------------------------------------#
 SRCS =	main.c images_setup.c map_setup.c window_setup.c utils.c \
-		player_setup.c events_setup.c checker.c
+		player_setup.c events_setup.c checker_map.c checker_exit.c
 
 #--------------------------	VARIABLES -----------------------------------------#
 NAME		= so_long
@@ -29,8 +29,7 @@ CFLAGS		= -Wall -Wextra -Werror -I. -Iincludes
 ${NAME}: ${OBJS}
 	make -C ./libft
 	make -C ./mlx
-	${CC} ${CLFAGS} ${SRCS} ${LIBFT} ${MLX} -o ${NAME} -Llibft -lft -Lmlx -lmlx -framework OpenGL -framework AppKit -g -fsanitize=address
-
+	${CC} ${CLFAGS} ${SRCS} ${LIBFT} ${MLX} -o ${NAME} -Llibft -lft -Lmlx -lmlx -framework OpenGL -framework AppKit -g
 all: 	${NAME}
 
 clean :
