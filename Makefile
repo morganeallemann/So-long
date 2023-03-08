@@ -11,7 +11,8 @@
 # **************************************************************************** #
 #-------------------------- SOURCES -------------------------------------------#
 SRCS =	main.c images_setup.c map_setup.c window_setup.c utils.c \
-		player_setup.c events_setup.c checker_map.c checker_exit.c
+		events_setup.c checker_map.c checker_exit.c \
+		error_message.c checker_correct_entry.c game_setup.c
 
 #--------------------------	VARIABLES -----------------------------------------#
 NAME		= so_long
@@ -19,7 +20,7 @@ NAME		= so_long
 OBJS		= ${SRCS:.c=.o}
 
 CC			= gcc
-CFLAGSDDBUG	= -Wall -Wextra =Werror -I. -Iincludes -g -fsanitize=address
+CFLAGSDDBUG	= -Wall -Wextra =Werror -I. -Iincludes -g 
 CFLAGS		= -Wall -Wextra -Werror -I. -Iincludes
 
 #-------------------------- COMMANDES -----------------------------------------#
